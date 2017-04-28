@@ -13,11 +13,11 @@ namespace Flowpack\OAuth2\Client\Token;
 
 use Flowpack\OAuth2\Client\Endpoint\TokenEndpointInterface;
 use Flowpack\OAuth2\Client\Exception;
-use TYPO3\Flow\Annotations as Flow;
-use TYPO3\Flow\Log\SecurityLoggerInterface;
-use TYPO3\Flow\Mvc\ActionRequest;
-use TYPO3\Flow\Security\Authentication\Token\AbstractToken;
-use TYPO3\Flow\Security\Authentication\TokenInterface;
+use Neos\Flow\Annotations as Flow;
+use Neos\Flow\Log\SecurityLoggerInterface;
+use Neos\Flow\Mvc\ActionRequest;
+use Neos\Flow\Security\Authentication\Token\AbstractToken;
+use Neos\Flow\Security\Authentication\TokenInterface;
 
 /**
  */

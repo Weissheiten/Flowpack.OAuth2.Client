@@ -12,15 +12,15 @@ namespace Flowpack\OAuth2\Client\Provider;
  *                                                                        */
 
 use Flowpack\OAuth2\Client\Token\AbstractClientToken;
-use TYPO3\Flow\Annotations as Flow;
-use TYPO3\Flow\Log\SecurityLoggerInterface;
-use TYPO3\Flow\Security\Account;
-use TYPO3\Flow\Security\Authentication\TokenInterface;
-use TYPO3\Flow\Security\Exception\UnsupportedAuthenticationTokenException;
-use TYPO3\Flow\Security\Policy\PolicyService;
+use Neos\Flow\Annotations as Flow;
+use Neos\Flow\Log\SecurityLoggerInterface;
+use Neos\Flow\Security\Account;
+use Neos\Flow\Security\Authentication\TokenInterface;
+use Neos\Flow\Security\Exception\UnsupportedAuthenticationTokenException;
+use Neos\Flow\Security\Policy\PolicyService;
 
-use TYPO3\Flow\Configuration\ConfigurationManager;
-use TYPO3\Flow\Object\ObjectManagerInterface;
+use Neos\Flow\Configuration\ConfigurationManager;
+use Neos\Flow\ObjectManagement\ObjectManagerInterface;
 
 /**
  */
@@ -54,13 +54,13 @@ class GoogleProvider extends AbstractClientProvider
 
     /**
      * @Flow\Inject
-     * @var \TYPO3\Flow\Security\AccountRepository
+     * @var \Neos\Flow\Security\AccountRepository
      */
     protected $accountRepository;
 
     /**
      * @Flow\Inject
-     * @var \TYPO3\Flow\Security\Context
+     * @var \Neos\Flow\Security\Context
      */
     protected $securityContext;
 
@@ -78,7 +78,7 @@ class GoogleProvider extends AbstractClientProvider
 
     /**
      * @Flow\Inject
-     * @var \TYPO3\Flow\Persistence\PersistenceManagerInterface
+     * @var \Neos\Flow\Persistence\PersistenceManagerInterface
      */
     protected $persistenceManager;
 
@@ -86,7 +86,7 @@ class GoogleProvider extends AbstractClientProvider
      * Tries to authenticate the given token. Sets isAuthenticated to TRUE if authentication succeeded.
      *
      * @param TokenInterface $authenticationToken The token to be authenticated
-     * @throws \TYPO3\Flow\Security\Exception\UnsupportedAuthenticationTokenException
+     * @throws \Neos\Flow\Security\Exception\UnsupportedAuthenticationTokenException
      * @return void
      */
     public function authenticate(TokenInterface $authenticationToken)
@@ -107,7 +107,7 @@ class GoogleProvider extends AbstractClientProvider
         // From here, we surely know the user is considered authenticated against the remote service,
         // yet to check if there is an immanent account present.
         $authenticationToken->setAuthenticationStatus(TokenInterface::AUTHENTICATION_SUCCESSFUL);
-        /** @var $account \TYPO3\Flow\Security\Account */
+        /** @var $account \Neos\Flow\Security\Account */
         $account = null;
         $isNewCreatedAccount = false;
         $providerName = $this->name;
@@ -165,7 +165,7 @@ class GoogleProvider extends AbstractClientProvider
      */
     protected function buildScopeParameter()
     {
-        $scopes = $this->configurationManager->getConfiguration(ConfigurationManager::CONFIGURATION_TYPE_SETTINGS, 'TYPO3.Flow.security.authentication.providers.GoogleOAuth2Provider.providerOptions.scopes');
+        $scopes = $this->configurationManager->getConfiguration(ConfigurationManager::CONFIGURATION_TYPE_SETTINGS, 'Neos.Flow.security.authentication.providers.GoogleOAuth2Provider.providerOptions.scopes');
         $scope = implode(' ', $scopes);
         $scopes = array('scope' => $scope);
 

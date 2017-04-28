@@ -12,12 +12,12 @@ namespace Flowpack\OAuth2\Client\Provider;
  *                                                                        */
 
 use Flowpack\OAuth2\Client\Token\AbstractClientToken;
-use TYPO3\Flow\Annotations as Flow;
-use TYPO3\Flow\Log\SecurityLoggerInterface;
-use TYPO3\Flow\Security\Account;
-use TYPO3\Flow\Security\Authentication\TokenInterface;
-use TYPO3\Flow\Security\Exception\UnsupportedAuthenticationTokenException;
-use TYPO3\Flow\Security\Policy\PolicyService;
+use Neos\Flow\Annotations as Flow;
+use Neos\Flow\Log\SecurityLoggerInterface;
+use Neos\Flow\Security\Account;
+use Neos\Flow\Security\Authentication\TokenInterface;
+use Neos\Flow\Security\Exception\UnsupportedAuthenticationTokenException;
+use Neos\Flow\Security\Policy\PolicyService;
 
 /**
  */
@@ -38,13 +38,13 @@ class FacebookProvider extends AbstractClientProvider
 
     /**
      * @Flow\Inject
-     * @var \TYPO3\Flow\Security\AccountRepository
+     * @var \Neos\Flow\Security\AccountRepository
      */
     protected $accountRepository;
 
     /**
      * @Flow\Inject
-     * @var \TYPO3\Flow\Security\Context
+     * @var \Neos\Flow\Security\Context
      */
     protected $securityContext;
 
@@ -62,7 +62,7 @@ class FacebookProvider extends AbstractClientProvider
 
     /**
      * @Flow\Inject
-     * @var \TYPO3\Flow\Persistence\PersistenceManagerInterface
+     * @var \Neos\Flow\Persistence\PersistenceManagerInterface
      */
     protected $persistenceManager;
 
@@ -70,7 +70,7 @@ class FacebookProvider extends AbstractClientProvider
      * Tries to authenticate the given token. Sets isAuthenticated to TRUE if authentication succeeded.
      *
      * @param TokenInterface $authenticationToken The token to be authenticated
-     * @throws \TYPO3\Flow\Security\Exception\UnsupportedAuthenticationTokenException
+     * @throws \Neos\Flow\Security\Exception\UnsupportedAuthenticationTokenException
      * @return void
      */
     public function authenticate(TokenInterface $authenticationToken)
@@ -102,7 +102,7 @@ class FacebookProvider extends AbstractClientProvider
         // From here, we surely know the user is considered authenticated against the remote service,
         // yet to check if there is an immanent account present.
         $authenticationToken->setAuthenticationStatus(TokenInterface::AUTHENTICATION_SUCCESSFUL);
-        /** @var $account \TYPO3\Flow\Security\Account */
+        /** @var $account \Neos\Flow\Security\Account */
         $account = null;
         $isNewCreatedAccount = false;
         $providerName = $this->name;

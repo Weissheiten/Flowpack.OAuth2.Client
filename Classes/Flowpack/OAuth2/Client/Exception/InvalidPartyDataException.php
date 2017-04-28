@@ -12,7 +12,7 @@ namespace Flowpack\OAuth2\Client\Exception;
  *                                                                        */
 
 use Flowpack\OAuth2\Client\Exception;
-use TYPO3\Flow\Annotations as Flow;
+use Neos\Flow\Annotations as Flow;
 
 /**
  *

@@ -11,8 +11,8 @@ namespace Flowpack\OAuth2\Client\Provider;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
-use TYPO3\Flow\Annotations as Flow;
-use TYPO3\Flow\Security\Authentication\Provider\AbstractProvider;
+use Neos\Flow\Annotations as Flow;
+use Neos\Flow\Security\Authentication\Provider\AbstractProvider;
 
 /**
  */

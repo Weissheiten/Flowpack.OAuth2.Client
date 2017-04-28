@@ -12,10 +12,10 @@ namespace Flowpack\OAuth2\Client\Endpoint;
  *                                                                        */
 
 use Flowpack\OAuth2\Client\Exception as OAuth2Exception;
-use TYPO3\Flow\Annotations as Flow;
-use TYPO3\Flow\Http\Request;
-use TYPO3\Flow\Http\Uri;
-use TYPO3\Flow\Utility\Arrays;
+use Neos\Flow\Annotations as Flow;
+use Neos\Flow\Http\Request;
+use Neos\Flow\Http\Uri;
+use Neos\Utility\Arrays;
 
 /**
  */
@@ -24,7 +24,7 @@ abstract class AbstractHttpTokenEndpoint implements TokenEndpointInterface
 
     /**
      * @Flow\Inject
-     * @var \TYPO3\Flow\Http\Client\CurlEngine
+     * @var \Neos\Flow\Http\Client\CurlEngine
      */
     protected $requestEngine;
 

@@ -12,12 +12,12 @@ namespace Flowpack\OAuth2\Client\Flow;
  *                                                                        */
 
 use Flowpack\OAuth2\Client\Token\AbstractClientToken;
-use TYPO3\Flow\Annotations as Flow;
-use TYPO3\Flow\Security\Authentication\TokenInterface;
-use TYPO3\Flow\Security\Account;
-use TYPO3\Flow\Security\Policy\PolicyService;
-use TYPO3\Flow\Validation\ValidatorResolver;
-use TYPO3\Party\Domain\Repository\PartyRepository;
+use Neos\Flow\Annotations as Flow;
+use Neos\Flow\Security\Authentication\TokenInterface;
+use Neos\Flow\Security\Account;
+use Neos\Flow\Security\Policy\PolicyService;
+use Neos\Flow\Validation\ValidatorResolver;
+use Neos\Party\Domain\Repository\PartyRepository;
 
 /**
  */
@@ -26,19 +26,19 @@ abstract class AbstractFlow implements FlowInterface
 
     /**
      * @Flow\Inject
-     * @var \TYPO3\Flow\Security\Context
+     * @var \Neos\Flow\Security\Context
      */
     protected $securityContext;
 
     /**
      * @Flow\Inject
-     * @var \TYPO3\Flow\Persistence\PersistenceManagerInterface
+     * @var \Neos\Flow\Persistence\PersistenceManagerInterface
      */
     protected $persistenceManager;
 
     /**
      * @Flow\Inject
-     * @var \TYPO3\Flow\Security\AccountRepository
+     * @var \Neos\Flow\Security\AccountRepository
      */
     protected $accountRepository;
 

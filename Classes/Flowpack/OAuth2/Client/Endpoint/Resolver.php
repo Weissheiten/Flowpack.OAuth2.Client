@@ -11,9 +11,9 @@ namespace Flowpack\OAuth2\Client\Endpoint;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
-use TYPO3\Flow\Annotations as Flow;
-use TYPO3\Flow\Configuration\ConfigurationManager;
-use TYPO3\Flow\Object\ObjectManagerInterface;
+use Neos\Flow\Annotations as Flow;
+use Neos\Flow\Configuration\ConfigurationManager;
+use Neos\Flow\ObjectManagement\ObjectManagerInterface;
 
 /**
  * @Flow\Scope("singleton")
@@ -40,7 +40,7 @@ class Resolver
      */
     public function getTokenEndpointForProvider($providerName)
     {
-        $tokenEndpointClassName = $this->configurationManager->getConfiguration(ConfigurationManager::CONFIGURATION_TYPE_SETTINGS, sprintf('TYPO3.Flow.security.authentication.providers.%s.providerOptions.tokenEndpointClassName', $providerName));
+        $tokenEndpointClassName = $this->configurationManager->getConfiguration(ConfigurationManager::CONFIGURATION_TYPE_SETTINGS, sprintf('Neos.Flow.security.authentication.providers.%s.providerOptions.tokenEndpointClassName', $providerName));
         if ($tokenEndpointClassName === null) {
             throw new \InvalidArgumentException(sprintf('In Settings.yaml, there was no "tokenEndpointClassName" option given for the provider "%s".', $providerName), 1383743372);
         }

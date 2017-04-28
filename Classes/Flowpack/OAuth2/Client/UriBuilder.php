@@ -11,9 +11,9 @@ namespace Flowpack\OAuth2\Client;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
-use TYPO3\Flow\Annotations as Flow;
-use TYPO3\Flow\Configuration\ConfigurationManager;
-use TYPO3\Flow\Http\Uri;
+use Neos\Flow\Annotations as Flow;
+use Neos\Flow\Configuration\ConfigurationManager;
+use Neos\Flow\Http\Uri;
 
 /**
  * @Flow\Scope("singleton")
@@ -72,7 +72,7 @@ class UriBuilder
     protected function getConfiguredOptionsByProviderName($providerName)
     {
         if (!array_key_exists($providerName, $this->providerOptionsByProviderName)) {
-            $providerOptions = $this->configurationManager->getConfiguration(ConfigurationManager::CONFIGURATION_TYPE_SETTINGS, sprintf('TYPO3.Flow.security.authentication.providers.%s.providerOptions', $providerName));
+            $providerOptions = $this->configurationManager->getConfiguration(ConfigurationManager::CONFIGURATION_TYPE_SETTINGS, sprintf('Neos.Flow.security.authentication.providers.%s.providerOptions', $providerName));
             if (!is_array($providerOptions)) {
                 throw new \InvalidArgumentException(sprintf('The given provider name "%s" was not properly defined in the Settings (i.e. being defined and having a "providerOptions" key).', $providerName), 1383739910);
             }

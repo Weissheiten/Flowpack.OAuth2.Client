@@ -11,12 +11,12 @@ namespace Flowpack\OAuth2\Client\Utility;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
-use TYPO3\Flow\Annotations as Flow;
-use TYPO3\Flow\Http\Client\CurlEngine;
-use TYPO3\Flow\Http\Client\RequestEngineInterface;
-use TYPO3\Flow\Http\Request;
-use TYPO3\Flow\Http\Uri;
-use TYPO3\Flow\Object\DependencyInjection\DependencyProxy;
+use Neos\Flow\Annotations as Flow;
+use Neos\Flow\Http\Client\CurlEngine;
+use Neos\Flow\Http\Client\RequestEngineInterface;
+use Neos\Flow\Http\Request;
+use Neos\Flow\Http\Uri;
+use Neos\Flow\ObjectManagement\DependencyInjection\DependencyProxy;
 
 /**
  * @Flow\Scope("singleton")
@@ -51,7 +51,7 @@ class FacebookApiClient
     public function initializeObject()
     {
         if (($this->requestEngine instanceof DependencyProxy
-                && $this->requestEngine->_getClassName() === 'TYPO3\Flow\Http\Client\CurlEngine')
+                && $this->requestEngine->_getClassName() === 'Neos\Flow\Http\Client\CurlEngine')
             || $this->requestEngine instanceof CurlEngine) {
             $this->requestEngine->setOption(CURLOPT_CAINFO, FLOW_PATH_PACKAGES . 'Application/Flowpack.OAuth2.Client/Resources/Private/cacert.pem');
             $this->requestEngine->setOption(CURLOPT_SSL_VERIFYPEER, true);
@@ -61,7 +61,7 @@ class FacebookApiClient
     /**
      * @param string $resource
      * @param string $method
-     * @return \TYPO3\Flow\Http\Response
+     * @return \Neos\Flow\Http\Response
      */
     public function query($resource, $method = 'GET')
     {

@@ -12,10 +12,10 @@ namespace Flowpack\OAuth2\Client\Endpoint;
  *                                                                        */
 
 use Flowpack\OAuth2\Client\Exception as OAuth2Exception;
-use TYPO3\Flow\Annotations as Flow;
-use TYPO3\Flow\Http\Request;
-use TYPO3\Flow\Http\Uri;
-use TYPO3\Flow\Log\SecurityLoggerInterface;
+use Neos\Flow\Annotations as Flow;
+use Neos\Flow\Http\Request;
+use Neos\Flow\Http\Uri;
+use Neos\Flow\Log\SecurityLoggerInterface;
 
 /**
  * @Flow\Scope("singleton")
